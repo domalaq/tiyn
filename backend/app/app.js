@@ -64,8 +64,7 @@ function sendEvent(err, res) {
 }
 
 function getPrivateKey(msg) {
-  const datadir = "/home/bakhtiar/tiyn/backend/"
-  const keyObject = keythereum.importFromFile(msg.from, datadir)
+  const keyObject = keythereum.importFromFile(msg.from, config.datadir)
 
   try {
     return keythereum.recover(msg.password, keyObject)
