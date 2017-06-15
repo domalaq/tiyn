@@ -68,7 +68,7 @@ function sendEvent(err, res) {
 }
 
 function getPrivateKey(msg) {
-  const keyObject = keythereum.importFromFile(msg.from, config.datadir)
+  const keyObject = keythereum.importFromFile(msg.from.toLowerCase(), config.datadir)
 
   try {
     return keythereum.recover(msg.password, keyObject)

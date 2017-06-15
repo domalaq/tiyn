@@ -174,7 +174,18 @@ class App extends React.Component {
           {
             this.state.walletOpen ?
             <Wallet rate={this.state.rate} /> :
-            <h2 style={{marginLeft: '20px', marginTop: '50px'}}>Қош келдіңіз!</h2>
+            <h1
+              style={{
+                marginLeft: '20px',
+                marginTop: '50px',
+                fontWeight: 'normal',
+                textAlign: 'center'
+              }}
+            >
+              Tiyn - Блокчейндегі Қазақ Ақшасы
+              <br />
+              1 TIYN = 0.01 KZT
+            </h1>
           }
 
           <Events />
