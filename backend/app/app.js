@@ -22,6 +22,10 @@ function cutAddress(addr) {
   return addr.substr(0, 6) + '...' + addr.substr(38, 4)
 }
 
+function cutHash(addr) {
+  return addr.substr(0, 10) + '...' + addr.substr(38, 8)
+}
+
 function sendEvent(err, res) {
   if (err) {
     return winston.error(err)
@@ -154,7 +158,7 @@ function signAndSendTransaction(data, msg, address) {
         return winston.error(err)
       }
 
-      io.to(msg.socketId).emit('notify', hash + ' транзакциясы жіберілді')
+      io.to(msg.socketId).emit('notify', cutHash(hash) + ' транзакциясы жіберілді')
     })
   }
 }
