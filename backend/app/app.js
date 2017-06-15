@@ -68,9 +68,8 @@ function sendEvent(err, res) {
 }
 
 function getPrivateKey(msg) {
-  const keyObject = keythereum.importFromFile(msg.from.toLowerCase(), config.datadir)
-
   try {
+    const keyObject = keythereum.importFromFile(msg.from, config.datadir)
     return keythereum.recover(msg.password, keyObject)
   } catch (e) {
     if (e.message === 'message authentication code mismatch' && msg.socketId) {
